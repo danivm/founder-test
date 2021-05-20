@@ -1,0 +1,41 @@
+$w-layout-navbar: 220px;
+
+.fn-Layout {
+  display: flex;
+  min-height: 100vh;
+
+  &-navbar {
+    background-color: $c-primary;
+    width: $w-layout-navbar;
+
+    &Header {
+      padding: $p-xxl $p-xl;
+      text-align: center;
+
+      &-name {
+        color: white;
+      }
+    }
+  }
+
+  &-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &Item {
+      padding: $p-l $p-xl;
+      color: white;
+
+      &:hover {
+        background-color: $c-primary-dark-1;
+        color: $c-accent;
+        cursor: pointer;
+      }
+    }
+
+    & > a {
+      text-decoration: none;
+    }
+  }
+}
