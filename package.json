@@ -1,0 +1,40 @@
+{
+  "name": "founder-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-router-dom": "5.2.0"
+  },
+  "devDependencies": {
+    "@s-ui/bundler": "7.20.0",
+    "@s-ui/lint": "3.31.0"
+  },
+  "scripts": {
+    "build": "sui-bundler build",
+    "start": "sui-bundler dev",
+    "phoenix": "npx rimraf node_modules && npm i --cache-min=999999",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danivm/founder-test.git"
+  },
+  "author": "danivm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danivm/founder-test/issues"
+  },
+  "homepage": "https://github.com/danivm/founder-test#readme",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/@s-ui/lint/eslintrc.js"
+    ]
+  },
+  "prettier": "./node_modules/@s-ui/lint/.prettierrc.js",
+  "stylelint": {
+    "extends": "./node_modules/@s-ui/lint/stylelint.config.js"
+  }
+}
