@@ -1,4 +1,4 @@
-// Paddings
+// padding
 $p-base: 8px; // 8px
 
 $p-xxl: $p-base * 4; // 32px
@@ -7,3 +7,13 @@ $p-l: $p-base * 2; // 16px
 $p-m: $p-base; // 8px
 $p-s: $p-base / 2; // 4px
 $p-xs: $p-base / 4; // 2px
+
+// margin
+$m-base: 8px; // 8px
+
+$m-xxl: $m-base * 4; // 32px
+$m-xl: $m-base * 3; // 24px
+$m-l: $m-base * 2; // 16px
+$m-m: $m-base; // 8px
+$m-s: $m-base / 2; // 4px
+$m-xs: $m-base / 4; // 2px
