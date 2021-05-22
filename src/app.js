@@ -6,7 +6,7 @@ import {Home} from './pages/home/index'
 import {InvestmentPage} from './pages/investment/index'
 import {ScreeningCriteriaPage} from './pages/screeningCriteria/index'
 import {SummaryPage} from './pages/summary/index'
-import './index.scss'
+import './styles/index.scss'
 
 ReactDOM.render(
   <Router>
