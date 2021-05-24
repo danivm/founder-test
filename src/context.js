@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 export const Context = createContext()
 
 const Provider = ({config, children, domain, i18n}) => {
-  console.log({config, children, domain, i18n})
   const value = {
     config,
     domain,
