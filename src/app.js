@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 
 // Pages
-import {Home} from './pages/home/index'
 import {InvestmentPage} from './pages/investment/index'
 import {ScreeningCriteriaPage} from './pages/screeningCriteria/index'
 import {SummaryPage} from './pages/summary/index'
@@ -27,7 +26,6 @@ const App = () => {
         <Router>
           <Layout>
             <Switch>
-              <Route path="/" exact component={Home} />
               <Route path="/investment/" component={InvestmentPage} />
               <Route
                 path="/screening_criteria/"

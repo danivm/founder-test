@@ -10,8 +10,8 @@ export function RequirementsList() {
 
   useEffect(() => {
     domain
-      .getRequirementsUseCase({invertorId: 'xxxx'})
-      .then(({requirements}) => setRequirements(requirements))
+      .getRequirementsInvestorUseCase({invertorId: 'xxxx'})
+      .then(setRequirements)
   }, [domain])
 
   const handleChange = id => e => {

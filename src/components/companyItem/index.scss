@@ -1,0 +1,39 @@
+.fn-CompanyItem {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $c-gray-light-2;
+  padding: $p-l 0;
+  width: 100%;
+
+  &-info {
+    flex-basis: 10%;
+
+    &Name,
+    &Web {
+      display: block;
+    }
+
+    &Name {
+      color: $c-accent;
+      font-size: $fz-l;
+      font-weight: $fw-bold;
+    }
+
+    &Web {
+      color: $c-gray;
+      font-size: $fz-m;
+      font-weight: $fw-light;
+    }
+  }
+
+  &-info,
+  &-stat {
+    flex-shrink: 0;
+  }
+
+  &-stat {
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 10%;
+  }
+}

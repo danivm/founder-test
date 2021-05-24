@@ -1,6 +1,6 @@
 import {RequirementsList} from '../../components/requirementsList'
 
-const baseClass = 'fn-ScreeningCriteria'
+const baseClass = 'fn-ScreeningCriteriaPage'
 
 export function ScreeningCriteriaPage() {
   return (
