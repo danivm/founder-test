@@ -1,0 +1,21 @@
+.fn-ScreeningCriteria {
+  padding: $p-xxl;
+
+  &-title {
+    font-weight: 400;
+  }
+
+  &-requirement {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: $p-m;
+
+    &Type {
+      border: 1px solid $c-gray-light-2;
+      border-radius: 4px;
+      padding: $p-xs $p-s;
+      margin-left: $m-l;
+    }
+  }
+}

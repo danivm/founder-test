@@ -6,6 +6,7 @@ $w-layout-navbar: 220px;
 
   &-navbar {
     background-color: $c-primary;
+    flex-shrink: 0;
     width: $w-layout-navbar;
 
     &Header {
@@ -37,5 +38,9 @@ $w-layout-navbar: 220px;
     & > a {
       text-decoration: none;
     }
+  }
+
+  &-content {
+    flex-grow: 1;
   }
 }
