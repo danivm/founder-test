@@ -10,7 +10,7 @@ export default {
         },
         {
           investorRequirementId: '2',
-          value: 'NO'
+          value: 'YES'
         }
       ],
       web: 'blissey.com'
@@ -20,8 +20,12 @@ export default {
       name: 'Yveltal',
       requirements: [
         {
-          investorRequirementId: '2',
+          investorRequirementId: '1',
           value: 'YES'
+        },
+        {
+          investorRequirementId: '2',
+          value: 'NO'
         }
       ],
       web: 'yveltal.com'
@@ -32,6 +36,14 @@ export default {
       requirements: [
         {
           investorRequirementId: '1',
+          value: 'YES'
+        },
+        {
+          investorRequirementId: '3',
+          value: 'YES'
+        },
+        {
+          investorRequirementId: '5',
           value: 'YES'
         }
       ],

@@ -21,49 +21,73 @@ const GetCompanyInfoService = ({statsValueObjectFactory}) => {
     )
 
     // missing info
-    const requirimentsWithMissing = requirements.filter(
-      ({value}) => value === REQUIREMENT_VALUES.UNKNOWN
+    const requirimentsWithoutMissing = requirements.filter(
+      ({value}) =>
+        value !== REQUIREMENT_VALUES.YES || value !== REQUIREMENT_VALUES.NO
     )
     const missingInfo = parseInt(
-      (requirimentsWithMissing.length * 100) / totalRequirements
+      ((totalRequirements - requirimentsWithoutMissing.length) * 100) /
+        totalRequirements
     )
 
     // nice to have
-    const niceToHaveRequirements = investorRequirements.map(
+    const investorNiceToHaveRequirements = investorRequirements.filter(
       ({priority}) => priority === PRIORITY_TYPES.NICE
     )
+    const companyNiceToHaveRequirements = requirements.filter(
+      ({investorRequirementId}) => {
+        return investorNiceToHaveRequirements.some(
+          ({id}) => id === investorRequirementId
+        )
+      }
+    )
     const niceToHaves = parseInt(
-      (niceToHaveRequirements.length * 100) / totalRequirements
+      (companyNiceToHaveRequirements.length * 100) /
+        investorNiceToHaveRequirements.length
     )
 
     // super nice to have
-    const superNiceToHaveRequirements = investorRequirements.map(
+    const investorSuperNiceToHaveRequirements = investorRequirements.filter(
       ({priority}) => priority === PRIORITY_TYPES.SUPER_NICE
     )
+    const companySuperNiceToHaveRequirements = requirements.filter(
+      ({investorRequirementId}) => {
+        return investorSuperNiceToHaveRequirements.some(
+          ({id}) => id === investorRequirementId
+        )
+      }
+    )
     const superNiceToHaves = parseInt(
-      (superNiceToHaveRequirements.length * 100) / totalRequirements
+      (companySuperNiceToHaveRequirements.length * 100) /
+        investorSuperNiceToHaveRequirements.length
     )
 
     // must have
-    const mustHaveRequirements = investorRequirements.map(
+    const investorMusts = investorRequirements.filter(
       ({priority}) => priority === PRIORITY_TYPES.MUST
     )
-
-    const isSomeMust = requirement =>
-      mustHaveRequirements.some(
-        ({id}) =>
-          requirements.find(
-            ({investorRequirementId}) => investorRequirementId === id
-          )?.value === requirement
+    const allMusts = investorMusts.every(({id}) => {
+      const requirement = requirements.find(
+        req => req.investorRequirementId === id
       )
+      return requirement?.value === REQUIREMENT_VALUES.YES
+    })
+
+    const isSomeMustMissing = investorMusts.some(({id}) => {
+      const requirement = requirements.find(
+        req => req.investorRequirementId === id
+      )
+      const value = requirement?.value || REQUIREMENT_VALUES.UNKWNOWN
+      return value !== REQUIREMENT_VALUES.YES && value !== REQUIREMENT_VALUES.NO
+    })
 
     let mustHaves
-    if (isSomeMust(REQUIREMENT_VALUES.UNKNOWN)) {
-      mustHaves = MUST_HAVE_VALUES.UNKNOWN
-    } else if (isSomeMust(REQUIREMENT_VALUES.NO)) {
-      mustHaves = MUST_HAVE_VALUES.KO
-    } else {
+    if (allMusts) {
       mustHaves = MUST_HAVE_VALUES.OK
+    } else if (isSomeMustMissing) {
+      mustHaves = MUST_HAVE_VALUES.UNKWNOWN
+    } else {
+      mustHaves = MUST_HAVE_VALUES.KO
     }
 
     // matchingScore
