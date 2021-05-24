@@ -1,5 +1,9 @@
-import useCasesFactory from './useCases/factory'
+import companyUseCasesFactory from './company/useCases/factory'
+import investorUseCasesFactory from './investor/useCases/factory'
 
 export default {
-  getRequirementsUseCase: useCasesFactory.getRequirementsUseCase()
+  // company
+  getListCompanyUseCase: companyUseCasesFactory.getListUseCase(),
+  // investor
+  getRequirementsInvestorUseCase: investorUseCasesFactory.getRequirementsUseCase()
 }
