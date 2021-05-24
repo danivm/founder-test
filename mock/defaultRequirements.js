@@ -3,14 +3,12 @@ export default {
     {
       id: '1',
       criteria: 'Stage is Seed or Series A',
-      priority: 'NICE',
-      value: 'YES'
+      priority: 'NICE'
     },
     {
       id: '2',
       criteria: 'Industry is FinTech or InsurTech',
-      priority: 'MUST',
-      value: 'NO'
+      priority: 'MUST'
     },
     {id: '3', criteria: 'Location is Bay Area', priority: 'SUPER_NICE'},
     {id: '4', criteria: 'Founding Team is full-time', priority: 'NICE_TO_HAVE'},
