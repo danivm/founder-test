@@ -10,9 +10,17 @@ export function RequirementsList() {
 
   useEffect(() => {
     domain
-      .getRequirementsUseCase({invertorId: 'foo'})
+      .getRequirementsUseCase({invertorId: 'xxxx'})
       .then(({requirements}) => setRequirements(requirements))
-  }, [])
+  }, [domain])
+
+  const handleChange = id => e => {
+    const priority = e.target.value
+    const index = requirements.findIndex(req => req.id === id)
+    const newRequirements = [...requirements]
+    newRequirements[index] = {...newRequirements[index], priority}
+    setRequirements(newRequirements)
+  }
 
   if (!requirements.length > 0) return null
 
@@ -28,6 +36,7 @@ export function RequirementsList() {
               className={`${baseClass}-requirementType`}
               name="requirements"
               value={priority}
+              onChange={handleChange(id)}
             >
               {Object.keys(PRIORITY_TYPES).map(type => {
                 return (
