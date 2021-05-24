@@ -26,12 +26,21 @@ export function CompanyList() {
       .then(setRequirements)
   }, [domain])
 
-  console.log('Component', companies)
-
   if (!companies.length > 0) return null
 
   return (
     <div className={baseClass}>
+      <div className={`${baseClass}-header`}>
+        <div className={`${baseClass}-headerColumnName`}>Company</div>
+        <div className={`${baseClass}-headerColumnName`}>Matching Score</div>
+        <div className={`${baseClass}-headerColumnName`}>Warnings</div>
+        <div className={`${baseClass}-headerColumnName`}>Missing Info</div>
+        <div className={`${baseClass}-headerColumnName`}>Must Haves</div>
+        <div className={`${baseClass}-headerColumnName`}>
+          Super Nice to Haves
+        </div>
+        <div className={`${baseClass}-headerColumnName`}>Nice to Haves</div>
+      </div>
       {companies.map(company => {
         const {info, stats} = company
 

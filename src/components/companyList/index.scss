@@ -1,0 +1,19 @@
+.fn-CompaniesList {
+  &-header {
+    border-bottom: 1px solid $c-gray-light-2;
+    display: flex;
+    padding: $p-l 0;
+
+    &ColumnName {
+      color: $c-gray;
+      font-weight: $fw-regular;
+      flex-basis: 10%;
+      flex-grow: 1;
+      text-align: center;
+
+      &:first-child {
+        text-align: left;
+      }
+    }
+  }
+}
