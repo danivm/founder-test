@@ -37,3 +37,4 @@ Discover what others do not. Before it is too late.
 - [ ] Domain Tests
 - [ ] E2E Tests
 - [ ] Responsive layout
+- [ ] Add Typescript and use domain Interfaces
