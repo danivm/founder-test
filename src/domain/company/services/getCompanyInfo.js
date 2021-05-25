@@ -41,10 +41,12 @@ const GetCompanyInfoService = ({statsValueObjectFactory}) => {
         )
       }
     )
-    const niceToHaves = parseInt(
-      (companyNiceToHaveRequirements.length * 100) /
-        investorNiceToHaveRequirements.length
-    )
+    const niceToHaves = investorNiceToHaveRequirements.length
+      ? parseInt(
+          (companyNiceToHaveRequirements.length * 100) /
+            investorNiceToHaveRequirements.length
+        )
+      : 0
 
     // super nice to have
     const investorSuperNiceToHaveRequirements = investorRequirements.filter(
@@ -57,10 +59,12 @@ const GetCompanyInfoService = ({statsValueObjectFactory}) => {
         )
       }
     )
-    const superNiceToHaves = parseInt(
-      (companySuperNiceToHaveRequirements.length * 100) /
-        investorSuperNiceToHaveRequirements.length
-    )
+    const superNiceToHaves = investorSuperNiceToHaveRequirements.length
+      ? parseInt(
+          (companySuperNiceToHaveRequirements.length * 100) /
+            investorSuperNiceToHaveRequirements.length
+        )
+      : 0
 
     // must have
     const investorMusts = investorRequirements.filter(
