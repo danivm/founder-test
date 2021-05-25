@@ -5,9 +5,8 @@ import {CompanyItem} from '../companyItem'
 const baseClass = 'fn-CompaniesList'
 
 export function CompanyList() {
-  const [requirements, setRequirements] = useState([])
   const [companies, setCompanies] = useState([])
-  const {domain} = useContext(Context)
+  const {domain, requirements} = useContext(Context)
 
   useEffect(() => {
     if (requirements.length < 1) return
@@ -19,12 +18,6 @@ export function CompanyList() {
       })
       .then(setCompanies)
   }, [domain, requirements])
-
-  useEffect(() => {
-    domain
-      .getRequirementsInvestorUseCase({invertorId: 'xxxx'})
-      .then(setRequirements)
-  }, [domain])
 
   if (!companies.length > 0) return null
 

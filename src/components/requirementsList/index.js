@@ -1,18 +1,11 @@
-import {useState, useEffect, useContext} from 'react'
+import {useContext} from 'react'
 import {Context} from '../../context.js'
 
 const baseClass = 'fn-RequirementsList'
 
 export function RequirementsList() {
-  const [requirements, setRequirements] = useState([])
-  const {config, domain, i18n} = useContext(Context)
+  const {config, i18n, requirements, setRequirements} = useContext(Context)
   const {PRIORITY_TYPES} = config
-
-  useEffect(() => {
-    domain
-      .getRequirementsInvestorUseCase({invertorId: 'xxxx'})
-      .then(setRequirements)
-  }, [domain])
 
   const handleChange = id => e => {
     const priority = e.target.value
