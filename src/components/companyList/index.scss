@@ -1,4 +1,11 @@
 .fn-CompaniesList {
+  margin-bottom: $m-xxl;
+
+  &-title {
+    font-weight: $fw-light;
+    margin: 0 0 $m-s 0;
+  }
+
   &-header {
     border-bottom: 1px solid $c-gray-light-2;
     display: flex;

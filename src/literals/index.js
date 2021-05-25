@@ -9,14 +9,15 @@ export default {
       NICE: 'Nice to Haves',
       SUPER_NICE: 'Super Nice to Haves',
       WARNINGS: 'Warnings'
-    }
+    },
+    EMPTY: 'Waiting new companies'
   },
   DECISION_VALUES: {
     MEET: 'Meet',
     PASS: 'Pass'
   },
   INVESTMENT_PAGE: {
-    DISCARDED: 'Discarded after Screening',
+    PASS: 'Discarded after Screening',
     MEET: 'Moved to First Meeting',
     WAITING: 'Companies Waiting on My Decision'
   },

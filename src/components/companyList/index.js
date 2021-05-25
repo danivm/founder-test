@@ -1,28 +1,26 @@
-import {useState, useEffect, useContext} from 'react'
+import PropTypes from 'prop-types'
+import {useState, useContext, useEffect} from 'react'
 import {Context} from '../../context.js'
 import {CompanyItem} from '../companyItem'
 
 const baseClass = 'fn-CompaniesList'
 
-export function CompanyList() {
-  const [companies, setCompanies] = useState([])
-  const {domain, requirements, i18n} = useContext(Context)
+export function CompanyList({decision}) {
+  const {companies, i18n} = useContext(Context)
+  const [filteredCompanies, setFilteredCompanies] = useState([])
 
   useEffect(() => {
-    if (requirements.length < 1) return
+    const filteredCompanies = decision
+      ? companies.filter(({info}) => info.decision === decision)
+      : companies
+    setFilteredCompanies(filteredCompanies)
+  }, [companies, decision])
 
-    domain
-      .getListCompanyUseCase({
-        invertorId: 'xxxx',
-        inverstorRequirements: requirements
-      })
-      .then(setCompanies)
-  }, [domain, requirements])
-
-  if (!companies.length > 0) return null
+  if (!filteredCompanies.length > 0) return null
 
   return (
     <div className={baseClass}>
+      <h1 className={`${baseClass}-title`}>{i18n.INVESTMENT_PAGE[decision]}</h1>
       <div className={`${baseClass}-header`}>
         <div className={`${baseClass}-headerColumnName`}>
           {i18n.COMPANY_LIST.COLUMNS.COMPANY}
@@ -49,11 +47,15 @@ export function CompanyList() {
           {i18n.COMPANY_LIST.COLUMNS.DECISION}
         </div>
       </div>
-      {companies.map(company => {
+      {filteredCompanies.map(company => {
         const {info, stats} = company
 
         return <CompanyItem key={info.id} info={info} stats={stats} />
       })}
     </div>
   )
+}
+
+CompanyList.propTypes = {
+  decision: PropTypes.string
 }

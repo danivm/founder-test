@@ -5,10 +5,10 @@ import {Context} from '../../context.js'
 
 const baseClass = 'fn-CompanyItem'
 export function CompanyItem({info, stats}) {
-  const {config, i18n} = useContext(Context)
+  const {config, i18n, companies, setCompanies} = useContext(Context)
   const {DECISION_VALUES, MATCHING_SCORE_VALUES, MUST_HAVE_VALUES} = config
 
-  const {name, web, decision} = info
+  const {id, name, web, decision} = info
 
   const {
     matchingScore,
@@ -32,12 +32,20 @@ export function CompanyItem({info, stats}) {
     [MATCHING_SCORE_VALUES.NO_DATA]: `${baseClass}-dot ${baseClass}-dot--empty`
   }
 
+  const handleChangeDecision = decision => {
+    const newCompanies = companies.map(company => ({...company}))
+    const index = newCompanies.findIndex(({info}) => info.id === id)
+    newCompanies[index].info = {...newCompanies[index].info, decision}
+    setCompanies(newCompanies)
+  }
+
   const renderButtons = () => {
     return (
       <>
         {decision !== DECISION_VALUES.PASS && (
           <button
             className={`${baseClass}-decisionButton ${baseClass}-decisionButton--meet`}
+            onClick={() => handleChangeDecision(DECISION_VALUES.MEET)}
           >
             {i18n.DECISION_VALUES.MEET}
           </button>
@@ -45,6 +53,7 @@ export function CompanyItem({info, stats}) {
         {decision !== DECISION_VALUES.MEET && (
           <button
             className={`${baseClass}-decisionButton ${baseClass}-decisionButton--pass`}
+            onClick={() => handleChangeDecision(DECISION_VALUES.PASS)}
           >
             {i18n.DECISION_VALUES.PASS}
           </button>
