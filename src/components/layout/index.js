@@ -20,6 +20,11 @@ export function Layout({children}) {
 
   return (
     <div className={baseClass}>
+      <div className={`${baseClass}-topbar`}>
+        <div className={`${baseClass}-topbarLogo`}>
+          <Logo />
+        </div>
+      </div>
       <nav className={`${baseClass}-navbar`}>
         <ul className={`${baseClass}-list`}>
           <Link to="/">

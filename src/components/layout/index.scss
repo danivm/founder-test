@@ -4,6 +4,28 @@ $w-layout-navbar: 220px;
   display: flex;
   min-height: 100vh;
 
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
+
+  &-topbar {
+    align-items: center;
+    display: none;
+    background-color: $c-primary;
+    height: 45px;
+    padding: $p-m $p-l;
+    width: 100%;
+
+    &Logo {
+      height: auto;
+      width: 200px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      display: flex;
+    }
+  }
+
   &-navbar {
     background-color: $c-primary;
     flex-shrink: 0;
@@ -16,6 +38,10 @@ $w-layout-navbar: 220px;
       &-name {
         color: white;
       }
+    }
+
+    @media only screen and (max-width: 600px) {
+      display: none;
     }
   }
 
