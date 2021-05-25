@@ -11,7 +11,8 @@
       flex-grow: 1;
       text-align: center;
 
-      &:first-child {
+      &:first-child,
+      &:nth-child(2) {
         text-align: left;
       }
     }

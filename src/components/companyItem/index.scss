@@ -7,12 +7,15 @@
 
   &-info,
   &-stat {
+    color: $c-gray-dark-2;
     flex-shrink: 0;
     flex-basis: 10%;
     flex-grow: 1;
     text-align: center;
+    font-size: $fz-s;
 
-    &:first-child {
+    &:first-child,
+    &:nth-child(2) {
       text-align: left;
     }
   }
@@ -33,6 +36,26 @@
       color: $c-gray;
       font-size: $fz-m;
       font-weight: $fw-light;
+    }
+  }
+
+  &-dot {
+    border-radius: 50%;
+    display: inline-block;
+    height: 12px;
+    margin-right: $m-m;
+    width: 12px;
+
+    &.is-high {
+      background-color: #1ab394;
+    }
+
+    &.is-medium {
+      background-color: #f8ac59;
+    }
+
+    &.is-empty {
+      background-color: $c-gray-light-1;
     }
   }
 }

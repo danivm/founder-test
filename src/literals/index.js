@@ -15,6 +15,12 @@ export default {
     MEET: 'Moved to First Meeting',
     WAITING: 'Companies Waiting on My Decision'
   },
+  MATCHING_SCORE_VALUES: {
+    HIGH: 'High',
+    MEDIUM: 'Medium-High',
+    NO_MATCH: 'No Match',
+    NO_DATA: 'Insufficient Data'
+  },
   NAVBAR: {
     INVESTMENT: 'Investment Funnel',
     SCREENING_CRITERIA: 'Screening Criteria',
