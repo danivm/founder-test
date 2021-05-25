@@ -1,6 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from 'react-router-dom'
 
 // Pages
 import {InvestmentPage} from './pages/investment/index'
@@ -32,6 +37,7 @@ const App = () => {
                 component={ScreeningCriteriaPage}
               />
               <Route path="/summary/" component={SummaryPage} />
+              <Redirect to="/investment" />
             </Switch>
           </Layout>
         </Router>

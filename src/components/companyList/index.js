@@ -6,7 +6,7 @@ const baseClass = 'fn-CompaniesList'
 
 export function CompanyList() {
   const [companies, setCompanies] = useState([])
-  const {domain, requirements} = useContext(Context)
+  const {domain, requirements, i18n} = useContext(Context)
 
   useEffect(() => {
     if (requirements.length < 1) return
@@ -24,15 +24,27 @@ export function CompanyList() {
   return (
     <div className={baseClass}>
       <div className={`${baseClass}-header`}>
-        <div className={`${baseClass}-headerColumnName`}>Company</div>
-        <div className={`${baseClass}-headerColumnName`}>Matching Score</div>
-        <div className={`${baseClass}-headerColumnName`}>Warnings</div>
-        <div className={`${baseClass}-headerColumnName`}>Missing Info</div>
-        <div className={`${baseClass}-headerColumnName`}>Must Haves</div>
         <div className={`${baseClass}-headerColumnName`}>
-          Super Nice to Haves
+          {i18n.COMPANY_LIST.COLUMNS.COMPANY}
         </div>
-        <div className={`${baseClass}-headerColumnName`}>Nice to Haves</div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.MATCHING_SCORE}
+        </div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.WARNINGS}
+        </div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.MISSING_INFO}
+        </div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.MUST}
+        </div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.SUPER_NICE}
+        </div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.NICE}
+        </div>
       </div>
       {companies.map(company => {
         const {info, stats} = company

@@ -1,10 +1,23 @@
+import {useContext} from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import {Link, useLocation} from 'react-router-dom'
+import {Context} from '../../context'
 import {Logo} from './Logo'
+import PATHS from './paths'
 
 const baseClass = 'fn-Layout'
 
 export function Layout({children}) {
+  const {i18n} = useContext(Context)
+  const {pathname} = useLocation()
+
+  const getItemClass = path => {
+    const className = `${baseClass}-listItem`
+    const isSelectedClass = 'is-selected'
+
+    return path === pathname ? `${className} ${isSelectedClass}` : className
+  }
+
   return (
     <div className={baseClass}>
       <nav className={`${baseClass}-navbar`}>
@@ -17,14 +30,20 @@ export function Layout({children}) {
               </span>
             </li>
           </Link>
-          <Link to="/investment">
-            <li className={`${baseClass}-listItem`}>Invesment Funnel</li>
+          <Link to={PATHS.INVESTMENT}>
+            <li className={getItemClass(PATHS.INVESTMENT)}>
+              {i18n.NAVBAR.INVESTMENT}
+            </li>
           </Link>
-          <Link to="/screening_criteria">
-            <li className={`${baseClass}-listItem`}>Screening Criteria</li>
+          <Link to={PATHS.SCREENING_CRITERIA}>
+            <li className={getItemClass(PATHS.SCREENING_CRITERIA)}>
+              {i18n.NAVBAR.SCREENING_CRITERIA}
+            </li>
           </Link>
-          <Link to="/summary">
-            <li className={`${baseClass}-listItem`}>Summary</li>
+          <Link to={PATHS.SUMMARY}>
+            <li className={getItemClass(PATHS.SUMMARY)}>
+              {i18n.NAVBAR.SUMMARY}
+            </li>
           </Link>
         </ul>
       </nav>

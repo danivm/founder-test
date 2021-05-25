@@ -28,6 +28,7 @@ $w-layout-navbar: 220px;
       padding: $p-l $p-xl;
       color: white;
 
+      &.is-selected,
       &:hover {
         background-color: $c-primary-dark-1;
         color: $c-accent;
