@@ -6,7 +6,7 @@ Discover what others do not. Before it is too late.
 
 1. Install dependencies `npm i`.
 2. Start app with `npm start`
-3. Go to leads page: http://localhost:3000/contactos
+3. Go to leads page: http://localhost:3000
 
 ## Dependencies
 
