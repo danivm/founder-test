@@ -1,5 +1,7 @@
 .fn-CompaniesList {
   margin-bottom: $m-xxl;
+  min-width: 900px;
+  overflow-x: auto;
 
   &-title {
     font-weight: $fw-light;
