@@ -1,8 +1,8 @@
 import repositoriesFactory from '../repositories/factory'
 import servicesFactory from '../services/factory'
 import GetListUseCase from './getList'
-import CompanyAggregate from '../aggregates/companyAggregate'
-import InvestorRequirementListValueObject from '../../investor/valueObjects/requirementList'
+import CompanyAggregate from '../models/companyAggregate'
+import InvestorRequirementListValueObject from '../../investor/models/requirementListValueObject'
 
 const useCasesFactory = {
   getListUseCase: () =>

@@ -1,4 +1,4 @@
-import StatsValueObject from '../valueObjects/stats'
+import StatsValueObject from '../models/statsValueObject'
 import GetCompanyInfoService from './getCompanyInfo'
 
 const servicesFactory = {

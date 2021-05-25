@@ -1,6 +1,6 @@
 import MockRepository from './mockRepository'
-import RequirementEntity from '../entities/requirement'
-import RequirementListValueObject from '../valueObjects/requirementList'
+import RequirementEntity from '../models/requirementEntity'
+import RequirementListValueObject from '../models/requirementListValueObject'
 
 const repositoriesFactory = {
   mockRepository: () =>
