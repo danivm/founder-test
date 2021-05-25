@@ -5,7 +5,7 @@ import {CompanyItem} from '../companyItem'
 
 const baseClass = 'fn-CompaniesList'
 
-export function CompanyList({decision}) {
+export function CompanyList({decision, isSummary = false}) {
   const {companies, i18n} = useContext(Context)
   const [filteredCompanies, setFilteredCompanies] = useState([])
 
@@ -34,15 +34,19 @@ export function CompanyList({decision}) {
         <div className={`${baseClass}-headerColumnName`}>
           {i18n.COMPANY_LIST.COLUMNS.MISSING_INFO}
         </div>
-        <div className={`${baseClass}-headerColumnName`}>
-          {i18n.COMPANY_LIST.COLUMNS.MUST}
-        </div>
-        <div className={`${baseClass}-headerColumnName`}>
-          {i18n.COMPANY_LIST.COLUMNS.SUPER_NICE}
-        </div>
-        <div className={`${baseClass}-headerColumnName`}>
-          {i18n.COMPANY_LIST.COLUMNS.NICE}
-        </div>
+        {!isSummary && (
+          <>
+            <div className={`${baseClass}-headerColumnName`}>
+              {i18n.COMPANY_LIST.COLUMNS.MUST}
+            </div>
+            <div className={`${baseClass}-headerColumnName`}>
+              {i18n.COMPANY_LIST.COLUMNS.SUPER_NICE}
+            </div>
+            <div className={`${baseClass}-headerColumnName`}>
+              {i18n.COMPANY_LIST.COLUMNS.NICE}
+            </div>
+          </>
+        )}
         <div className={`${baseClass}-headerColumnName`}>
           {i18n.COMPANY_LIST.COLUMNS.DECISION}
         </div>
@@ -50,12 +54,20 @@ export function CompanyList({decision}) {
       {filteredCompanies.map(company => {
         const {info, stats} = company
 
-        return <CompanyItem key={info.id} info={info} stats={stats} />
+        return (
+          <CompanyItem
+            key={info.id}
+            info={info}
+            stats={stats}
+            isSummary={isSummary}
+          />
+        )
       })}
     </div>
   )
 }
 
 CompanyList.propTypes = {
-  decision: PropTypes.string
+  decision: PropTypes.string.isRequired,
+  isSummary: PropTypes.bool
 }

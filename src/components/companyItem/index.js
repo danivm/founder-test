@@ -4,7 +4,7 @@ import {useContext} from 'react'
 import {Context} from '../../context.js'
 
 const baseClass = 'fn-CompanyItem'
-export function CompanyItem({info, stats}) {
+export function CompanyItem({info, isSummary = false, stats}) {
   const {config, i18n, companies, setCompanies} = useContext(Context)
   const {DECISION_VALUES, MATCHING_SCORE_VALUES, MUST_HAVE_VALUES} = config
 
@@ -74,9 +74,13 @@ export function CompanyItem({info, stats}) {
       </div>
       <div className={`${baseClass}-stat`}>{warnings} %</div>
       <div className={`${baseClass}-stat`}>{missingInfo} %</div>
-      <div className={`${baseClass}-stat`}>{mustHaveIcons[mustHaves]}</div>
-      <div className={`${baseClass}-stat`}>{superNiceToHaves} %</div>
-      <div className={`${baseClass}-stat`}>{niceToHaves} %</div>
+      {!isSummary && (
+        <>
+          <div className={`${baseClass}-stat`}>{mustHaveIcons[mustHaves]}</div>
+          <div className={`${baseClass}-stat`}>{superNiceToHaves} %</div>
+          <div className={`${baseClass}-stat`}>{niceToHaves} %</div>
+        </>
+      )}
       <div className={`${baseClass}-stat`}>{renderButtons()}</div>
     </div>
   )
@@ -89,6 +93,7 @@ CompanyItem.propTypes = {
     name: PropTypes.string.isRequired,
     web: PropTypes.string
   }),
+  isSummary: PropTypes.bool,
   stats: PropTypes.shape({
     matchingScore: PropTypes.string.isRequired,
     warnings: PropTypes.number.isRequired,
