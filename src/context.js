@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 export const Context = createContext()
 
 const Provider = ({config, children, domain, i18n}) => {
+  const [companies, setCompanies] = useState([])
   const [requirements, setRequirements] = useState([])
 
   useEffect(() => {
@@ -12,11 +13,24 @@ const Provider = ({config, children, domain, i18n}) => {
       .then(setRequirements)
   }, [domain])
 
+  useEffect(() => {
+    if (requirements.length < 1) return
+
+    domain
+      .getListCompanyUseCase({
+        invertorId: 'xxxx',
+        inverstorRequirements: requirements
+      })
+      .then(setCompanies)
+  }, [domain, requirements])
+
   const value = {
     config,
+    companies,
     domain,
     i18n,
     requirements,
+    setCompanies,
     setRequirements
   }
 
