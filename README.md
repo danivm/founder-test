@@ -23,6 +23,7 @@ Discover what others do not. Before it is too late.
 - [x] Filter companies by decision
 - [x] Calculate company stats
 - [ ] Update company info
+- [ ] Sort company tables
 
 ## To Do
 
