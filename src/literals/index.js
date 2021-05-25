@@ -2,6 +2,7 @@ export default {
   COMPANY_LIST: {
     COLUMNS: {
       COMPANY: 'Company',
+      DECISION: 'My Decision',
       MATCHING_SCORE: 'Matching Score',
       MISSING_INFO: 'Missing Info',
       MUST: 'Must Haves',
@@ -9,6 +10,10 @@ export default {
       SUPER_NICE: 'Super Nice to Haves',
       WARNINGS: 'Warnings'
     }
+  },
+  DECISION_VALUES: {
+    MEET: 'Meet',
+    PASS: 'Pass'
   },
   INVESTMENT_PAGE: {
     DISCARDED: 'Discarded after Screening',

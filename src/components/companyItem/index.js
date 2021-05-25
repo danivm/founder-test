@@ -6,9 +6,9 @@ import {Context} from '../../context.js'
 const baseClass = 'fn-CompanyItem'
 export function CompanyItem({info, stats}) {
   const {config, i18n} = useContext(Context)
-  const {MATCHING_SCORE_VALUES, MUST_HAVE_VALUES} = config
+  const {DECISION_VALUES, MATCHING_SCORE_VALUES, MUST_HAVE_VALUES} = config
 
-  const {name, web} = info
+  const {name, web, decision} = info
 
   const {
     matchingScore,
@@ -26,10 +26,31 @@ export function CompanyItem({info, stats}) {
   }
 
   const matchingScoreDotClass = {
-    [MATCHING_SCORE_VALUES.HIGH]: `${baseClass}-dot is-high`,
-    [MATCHING_SCORE_VALUES.MEDIUM]: `${baseClass}-dot is-medium`,
-    [MATCHING_SCORE_VALUES.NO_MATCH]: `${baseClass}-dot is-empty`,
-    [MATCHING_SCORE_VALUES.NO_DATA]: `${baseClass}-dot is-empty`
+    [MATCHING_SCORE_VALUES.HIGH]: `${baseClass}-dot ${baseClass}-dot--high`,
+    [MATCHING_SCORE_VALUES.MEDIUM]: `${baseClass}-dot ${baseClass}-dot--medium`,
+    [MATCHING_SCORE_VALUES.NO_MATCH]: `${baseClass}-dot ${baseClass}-dot--empty`,
+    [MATCHING_SCORE_VALUES.NO_DATA]: `${baseClass}-dot ${baseClass}-dot--empty`
+  }
+
+  const renderButtons = () => {
+    return (
+      <>
+        {decision !== DECISION_VALUES.PASS && (
+          <button
+            className={`${baseClass}-decisionButton ${baseClass}-decisionButton--meet`}
+          >
+            {i18n.DECISION_VALUES.MEET}
+          </button>
+        )}
+        {decision !== DECISION_VALUES.MEET && (
+          <button
+            className={`${baseClass}-decisionButton ${baseClass}-decisionButton--pass`}
+          >
+            {i18n.DECISION_VALUES.PASS}
+          </button>
+        )}
+      </>
+    )
   }
 
   return (
@@ -47,12 +68,14 @@ export function CompanyItem({info, stats}) {
       <div className={`${baseClass}-stat`}>{mustHaveIcons[mustHaves]}</div>
       <div className={`${baseClass}-stat`}>{superNiceToHaves} %</div>
       <div className={`${baseClass}-stat`}>{niceToHaves} %</div>
+      <div className={`${baseClass}-stat`}>{renderButtons()}</div>
     </div>
   )
 }
 
 CompanyItem.propTypes = {
   info: PropTypes.shape({
+    decision: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     web: PropTypes.string

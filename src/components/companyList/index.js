@@ -45,6 +45,9 @@ export function CompanyList() {
         <div className={`${baseClass}-headerColumnName`}>
           {i18n.COMPANY_LIST.COLUMNS.NICE}
         </div>
+        <div className={`${baseClass}-headerColumnName`}>
+          {i18n.COMPANY_LIST.COLUMNS.DECISION}
+        </div>
       </div>
       {companies.map(company => {
         const {info, stats} = company

@@ -46,16 +46,36 @@
     margin-right: $m-m;
     width: 12px;
 
-    &.is-high {
-      background-color: #1ab394;
+    &--high {
+      background-color: $c-succees;
     }
 
-    &.is-medium {
-      background-color: #f8ac59;
+    &--medium {
+      background-color: $c-warning;
     }
 
-    &.is-empty {
+    &--empty {
       background-color: $c-gray-light-1;
+    }
+  }
+
+  &-decisionButton {
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: white;
+    padding: $p-m $p-l;
+
+    &--meet {
+      background-color: $c-succees;
+    }
+
+    &--pass {
+      background-color: $c-error;
+    }
+
+    & + & {
+      margin-left: $m-m;
     }
   }
 }
