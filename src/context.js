@@ -6,7 +6,11 @@ export const Context = createContext()
 const Provider = ({config, children, domain, i18n}) => {
   const [companies, setCompanies] = useState([])
   const [requirements, setRequirements] = useState([])
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(localStorage.getItem('user'))
+
+  useEffect(() => {
+    user ? localStorage.setItem('user', user) : localStorage.removeItem('user')
+  }, [user])
 
   useEffect(() => {
     if (user)
@@ -14,7 +18,7 @@ const Provider = ({config, children, domain, i18n}) => {
   }, [domain, user])
 
   useEffect(() => {
-    if (requirements.length < 1) return
+    if (!user || requirements.length < 1) return
 
     domain
       .getListCompanyUseCase({
@@ -33,6 +37,7 @@ const Provider = ({config, children, domain, i18n}) => {
     setCompanies,
     setRequirements,
     loginUser: setUser,
+    logout: () => setUser(null),
     user
   }
 
