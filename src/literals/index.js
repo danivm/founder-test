@@ -35,6 +35,7 @@ export default {
   },
   NAVBAR: {
     INVESTMENT: 'Investment Funnel',
+    LOGOUT: 'Logout',
     SCREENING_CRITERIA: 'Screening Criteria',
     SUMMARY: 'Summary Funnel'
   },

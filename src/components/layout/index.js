@@ -8,7 +8,7 @@ import PATHS from './paths'
 const baseClass = 'fn-Layout'
 
 export function Layout({children}) {
-  const {i18n} = useContext(Context)
+  const {i18n, logout} = useContext(Context)
   const {pathname} = useLocation()
 
   const getItemClass = path => {
@@ -51,6 +51,9 @@ export function Layout({children}) {
             </li>
           </Link>
         </ul>
+        <div className={`${baseClass}-listItem`} onClick={logout}>
+          {i18n.NAVBAR.LOGOUT}
+        </div>
       </nav>
       <div className={`${baseClass}-content`}>{children}</div>
     </div>

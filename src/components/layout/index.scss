@@ -28,7 +28,11 @@ $w-layout-navbar: 220px;
 
   &-navbar {
     background-color: $c-primary;
+    display: flex;
+    flex-direction: column;
     flex-shrink: 0;
+    justify-content: space-between;
+    padding: $p-l 0;
     width: $w-layout-navbar;
 
     &Header {
