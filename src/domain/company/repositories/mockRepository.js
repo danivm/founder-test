@@ -1,13 +1,11 @@
-import defaultCompanies from '../../../../mock/defaultCompanies'
-
 const MockRepository = ({
   companyEntityFactory,
   companyListValueObjectFactory,
   requirementValueObjectFactory
 }) => ({
-  getCompanyList: async ({investorId}) => {
-    const {companies} = await defaultCompanies
-
+  getCompanyList: async ({user}) => {
+    const module = await import(`../../../../mock/${user}/defaultCompanies`)
+    const {companies} = module.default
     const companyList = companies.map(company => {
       const {requirements} = company
       const requirementsValueObjects = requirements.map(

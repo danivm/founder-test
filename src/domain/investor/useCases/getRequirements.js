@@ -1,7 +1,7 @@
 const GetRequirementsUseCase = ({repository}) => {
-  return async ({investorId}) => {
+  return async ({user}) => {
     const requirementListValueObject = await repository.getRequirements({
-      investorId
+      user
     })
 
     return requirementListValueObject.requirements

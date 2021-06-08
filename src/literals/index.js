@@ -21,6 +21,12 @@ export default {
     MEET: 'Moved to First Meeting',
     WAITING: 'Companies Waiting on My Decision'
   },
+  LOGIN: {
+    PASSWORD: 'Password',
+    SIGNIN: 'Sign In',
+    TITLE: 'Login',
+    USER: 'User'
+  },
   MATCHING_SCORE_VALUES: {
     HIGH: 'High',
     MEDIUM: 'Medium-High',

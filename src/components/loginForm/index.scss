@@ -1,0 +1,31 @@
+.fn-LoginForm {
+  justify-content: center;
+  display: flex;
+  border-radius: 8px;
+  box-shadow: 0 0 16px 0 rgb(0 0 0 / 10%);
+  padding: $p-xxl;
+  max-width: 600px;
+  width: fit-content;
+
+  &-label {
+    display: block;
+    margin-bottom: $m-m;
+  }
+
+  &-input {
+    border: 1px solid $c-primary;
+    border-radius: 8px;
+    padding: $p-m;
+    margin-bottom: $m-xl;
+  }
+
+  &-button {
+    border: none;
+    background-color: $c-primary;
+    color: white;
+    border-radius: 8px;
+    padding: $p-m $p-xl;
+    margin-top: $m-m;
+    width: 100%;
+  }
+}

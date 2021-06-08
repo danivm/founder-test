@@ -4,9 +4,9 @@ const GetListUseCase = ({
   companyAggregateFactory,
   inverstorRequirementListValueObjectFactory
 }) => {
-  return async ({investorId, inverstorRequirements}) => {
+  return async ({user, inverstorRequirements}) => {
     const companyListValueObject = await repository.getCompanyList({
-      investorId
+      user
     })
 
     const inverstorRequirementListValueObject = inverstorRequirementListValueObjectFactory(

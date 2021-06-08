@@ -6,23 +6,23 @@ export const Context = createContext()
 const Provider = ({config, children, domain, i18n}) => {
   const [companies, setCompanies] = useState([])
   const [requirements, setRequirements] = useState([])
+  const [user, setUser] = useState(null)
 
   useEffect(() => {
-    domain
-      .getRequirementsInvestorUseCase({invertorId: 'xxxx'})
-      .then(setRequirements)
-  }, [domain])
+    if (user)
+      domain.getRequirementsInvestorUseCase({user}).then(setRequirements)
+  }, [domain, user])
 
   useEffect(() => {
     if (requirements.length < 1) return
 
     domain
       .getListCompanyUseCase({
-        invertorId: 'xxxx',
+        user,
         inverstorRequirements: requirements
       })
       .then(setCompanies)
-  }, [domain, requirements])
+  }, [domain, requirements, user])
 
   const value = {
     config,
@@ -31,7 +31,9 @@ const Provider = ({config, children, domain, i18n}) => {
     i18n,
     requirements,
     setCompanies,
-    setRequirements
+    setRequirements,
+    loginUser: setUser,
+    user
   }
 
   return <Context.Provider value={value}>{children}</Context.Provider>
