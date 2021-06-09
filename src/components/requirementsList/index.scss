@@ -1,11 +1,12 @@
 .fn-RequirementsList {
-  max-width: 600px;
+  max-width: 800px;
 
   &-requirement {
     align-items: center;
+    border-bottom: 1px solid $c-gray-light-2;
     display: flex;
     justify-content: space-between;
-    padding: $p-m;
+    padding: $p-l $p-s;
 
     &Type {
       border: 1px solid $c-gray-light-2;

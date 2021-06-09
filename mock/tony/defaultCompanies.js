@@ -39,22 +39,6 @@ export default {
         {
           investorRequirementId: '9',
           value: 'YES'
-        },
-        {
-          investorRequirementId: '10',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '11',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '12',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '13',
-          value: 'YES'
         }
       ],
       web: 'blissey.com'
@@ -72,19 +56,19 @@ export default {
           value: 'YES'
         },
         {
+          investorRequirementId: '3',
+          value: 'YES'
+        },
+        {
+          investorRequirementId: '4',
+          value: 'YES'
+        },
+        {
+          investorRequirementId: '6',
+          value: 'YES'
+        },
+        {
           investorRequirementId: '8',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '10',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '13',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '15',
           value: 'NO'
         }
       ],
@@ -108,10 +92,6 @@ export default {
         },
         {
           investorRequirementId: '7',
-          value: 'NO'
-        },
-        {
-          investorRequirementId: '13',
           value: 'NO'
         },
         {
@@ -159,38 +139,6 @@ export default {
         },
         {
           investorRequirementId: '9',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '10',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '11',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '12',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '13',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '14',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '15',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '16',
-          value: 'YES'
-        },
-        {
-          investorRequirementId: '17',
           value: 'YES'
         }
       ],

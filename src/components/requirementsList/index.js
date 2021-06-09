@@ -7,11 +7,19 @@ export function RequirementsList() {
   const {config, i18n, requirements, setRequirements} = useContext(Context)
   const {PRIORITY_TYPES} = config
 
-  const handleChange = id => e => {
+  const handleChangePriority = id => e => {
     const priority = e.target.value
     const index = requirements.findIndex(req => req.id === id)
     const newRequirements = [...requirements]
     newRequirements[index] = {...newRequirements[index], priority}
+    setRequirements(newRequirements)
+  }
+
+  const handleChangeParam = id => e => {
+    const param = e.target.value
+    const index = requirements.findIndex(req => req.id === id)
+    const newRequirements = [...requirements]
+    newRequirements[index] = {...newRequirements[index], selectedParam: param}
     setRequirements(newRequirements)
   }
 
@@ -20,16 +28,39 @@ export function RequirementsList() {
   return (
     <div className={`${baseClass}`}>
       {requirements.map(requirement => {
-        const {id, criteria, priority} = requirement
+        const {id, criteria, params, priority, selectedParam} = requirement
+        const hasParams = params && params.length > 0
 
         return (
           <div className={`${baseClass}-requirement`} key={id}>
-            <span className={`${baseClass}-requirementName`}>{criteria}</span>
+            <div>
+              <span className={`${baseClass}-requirementName`}>{criteria}</span>
+              {hasParams && (
+                <select
+                  className={`${baseClass}-requirementType`}
+                  name="params"
+                  value={selectedParam}
+                  onChange={handleChangeParam(id)}
+                  disabled={!(params && params.length > 0)}
+                >
+                  {!selectedParam && (
+                    <option value="" key="disabled" disabled selected />
+                  )}
+                  {params.map((param, i) => {
+                    return (
+                      <option value={param} key={i}>
+                        {param}
+                      </option>
+                    )
+                  })}
+                </select>
+              )}
+            </div>
             <select
               className={`${baseClass}-requirementType`}
               name="requirements"
               value={priority}
-              onChange={handleChange(id)}
+              onChange={handleChangePriority(id)}
             >
               {Object.keys(PRIORITY_TYPES).map(type => {
                 return (
