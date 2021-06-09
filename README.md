@@ -22,6 +22,8 @@ Discover what others do not. Before it is too late.
 - [x] Update company decision
 - [x] Filter companies by decision
 - [x] Calculate company stats
+- [x] Configurable requirement params
+- [x] Multiple users 
 - [ ] Update company info
 - [ ] Sort company tables
 
