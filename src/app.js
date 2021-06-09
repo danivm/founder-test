@@ -39,7 +39,7 @@ const Routes = () => {
               component={ScreeningCriteriaPage}
             />
             <Route path="/summary/" component={SummaryPage} />
-            <Redirect to="/investment" />
+            <Redirect to="/screening_criteria" />
           </Switch>
         </Layout>
       ) : (
