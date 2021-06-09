@@ -14,6 +14,10 @@
       background-color: white;
       padding: $p-xs $p-s;
       margin-left: $m-l;
+
+      &.is-empty {
+        border: 1px solid $c-accent;
+      }
     }
   }
 }

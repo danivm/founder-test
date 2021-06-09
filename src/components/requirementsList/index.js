@@ -30,6 +30,9 @@ export function RequirementsList() {
       {requirements.map(requirement => {
         const {id, criteria, params, priority, selectedParam} = requirement
         const hasParams = params && params.length > 0
+        const requirementSelectClass = selectedParam
+          ? `${baseClass}-requirementType`
+          : `${baseClass}-requirementType is-empty`
 
         return (
           <div className={`${baseClass}-requirement`} key={id}>
@@ -37,7 +40,7 @@ export function RequirementsList() {
               <span className={`${baseClass}-requirementName`}>{criteria}</span>
               {hasParams && (
                 <select
-                  className={`${baseClass}-requirementType`}
+                  className={requirementSelectClass}
                   name="params"
                   value={selectedParam}
                   onChange={handleChangeParam(id)}
